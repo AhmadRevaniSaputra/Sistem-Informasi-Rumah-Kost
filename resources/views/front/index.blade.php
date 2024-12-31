@@ -62,8 +62,7 @@
                         <a href="https://github.com" ><i class="fa-brands fa-github"></i></a>
                         <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
                         <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://x.com/"><i class="fa-brands fa-x-twitter"></i>
-                        </a>
+                        <a href="https://x.com/"><i class="fa-brands fa-x-twitter"></i></a>
                     </div>
 
                 </div>
