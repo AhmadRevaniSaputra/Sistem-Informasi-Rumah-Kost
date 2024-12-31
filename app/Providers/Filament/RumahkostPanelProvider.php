@@ -27,6 +27,7 @@ class RumahkostPanelProvider extends PanelProvider
             ->id('rumahkost')
             ->path('rumahkost')
             ->login()
+            ->registration()
             ->colors([
                 'primary' => Color::Amber,
             ])

@@ -22,8 +22,9 @@ class transaksi_sewa extends Model
     {
         return $this->belongsTo(KategoriKost::class);
     }
-    public function kamar_Kost()
-    {
-        return $this->belongsTo(Kamar_Kost::class, 'kamar__kost_id'); // Adjust the foreign key if necessary
-    }
+    public function kamar_kost()
+{
+    return $this->belongsTo(Kamar_Kost::class, 'kamar__kost_id');
+}
+
 }

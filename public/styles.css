@@ -122,17 +122,43 @@ section{
     justify-content: space-evenly;
     align-items: center;
 }
-.main-container .image{
-    z-index: -1;
-    width: 30%;
+/* Gaya profil */
+.profile {
+    text-align: center;
+    flex: 1; /* Atur agar elemen seimbang */
 }
-.main-container .image img{
-    width: 80%;
+
+/* Mengubah bentuk foto menjadi kotak */
+.profile img {
+    width: 300px; /* Ukuran lebih besar */
+    height: 300px; /* Ukuran lebih besar */
+    border-radius: 12px; /* Menghilangkan bentuk bulat */
+    border: 3px solid rgb(109,67,0);
+    object-fit: cover; /* Memastikan gambar tetap proporsional */
+    
 }
+
+.profile img:hover {
+    transform: scale(1.1); /* Efek hover */
+    box-shadow: 0px 0px 15px rgba(109, 67, 0, 0.8);
+
+}
+
+/* Menyesuaikan teks di bawah foto */
+.profile h3 {
+    margin-top: 10px;
+    color: rgb(109, 67, 0);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.3s linear;
+}
+
 .main-container .content{
     color: black;
     width: 40%;
     min-height: 100px;
+    transition: 0.3s linear;
 }
 .content h1{
     font-size: clamp(1rem, 2rem + 5vw, 3rem);
@@ -153,7 +179,7 @@ section{
     transition: 0.3s linear;
 }
 .typewriter span::before{
-    content: "";
+    content: "Developer";
     animation: words 15s infinite;
 }
 .typewriter span::after{
@@ -171,16 +197,15 @@ section{
 }
 @keyframes words {
     0%, 33%{
-        content: "Ahmad Revani Saputra";
-        
+        content: "Perkenalkan Nama Saya";
     }
     34%, 66%{
-        
+        content: "Ahmad Revani Saputra";
+    }
+    67%, 100%{
         content: "M.Joko Maulana Noor";
     }
-    
 }
-
 .content p{
     font-size: clamp(0.4rem, 0.2rem + 9vw, 1rem);
     margin: 10px 0;
@@ -213,7 +238,7 @@ section{
     color: white;
     border: none;
     outline: none;
-    font-size: 100%;
+    font-size: 65%;
     font-weight: 700;
     border-radius: 5px;
     transition: 0.2s linear;

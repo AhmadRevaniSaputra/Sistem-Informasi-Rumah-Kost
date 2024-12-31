@@ -29,4 +29,9 @@ class Kamar_Kost extends Model
     {
         return $this->belongsTo(KategoriKost::class, 'kategori_kost_id');
     }
+    public function kamar_Kost()
+{
+    return $this->belongsTo(Kamar_Kost::class, 'kamar__kost_id');
+}
+
 }

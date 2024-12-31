@@ -18,12 +18,12 @@ use Filament\Tables\Actions\EditAction;
 class KeuntunganKostResource extends Resource
 {
     protected static ?string $model = Keuntungan_Kost::class;
-
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('diskon')
+                Forms\Components\TextInput::make('Dapat_Diskon')
                     ->required()
                     ->numeric(),
                 Forms\Components\Textarea::make('description')
@@ -36,7 +36,7 @@ class KeuntunganKostResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('diskon')
+                TextColumn::make('Dapat_Diskon')
                     ->sortable(),
                 TextColumn::make('description')
                     ->limit(50),
@@ -45,9 +45,6 @@ class KeuntunganKostResource extends Resource
             ])
             ->actions([
                 EditAction::make(),
-            ])
-            ->bulkActions([
-                DeleteBulkAction::make(),
             ]);
     }
 

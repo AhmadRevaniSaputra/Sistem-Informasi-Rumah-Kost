@@ -1,27 +1,29 @@
 <?php
 
-namespace App\Http\Controllers;
+    namespace App\Http\Controllers;
 
 
-use App\Models\Category;
-use App\Models\Workshop;
-use App\Services\FrontService;
-use Illuminate\Http\Request;
+    use App\Models\Profile;
 
-class FrontController extends Controller
-{
-    //
-    protected $frontService;
+    use App\Services\FrontService;
+    use Illuminate\Http\Request;
 
-    public function __construct(FrontService $frontService)
+    class FrontController extends Controller
     {
-        $this->frontService = $frontService;
-    }
+        //
+        protected $frontService;
 
-    public function index()
-    {
-        $data = $this->frontService->getFrontPageData();
-        return view('front.index', $data);
-    }
-    
-}
+        public function __construct(FrontService $frontService)
+        {
+            $this->frontService = $frontService;
+        }
+
+        public function index()
+        {
+            $profile1 = Profile::find(1); // Ambil data profil pertama
+            $profile2 = Profile::find(2); // Ambil data profil kedua
+        
+            return view('front.index', compact('profile1', 'profile2'));
+        }
+        
+    }        

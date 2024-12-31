@@ -17,43 +17,40 @@ use Filament\Tables\Actions\EditAction;
 class PenghuniKostResource extends Resource
 {
     protected static ?string $model = Penghuni_Kost::class;
+    protected static ?string $navigationIcon = 'heroicon-o-users';
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('nama')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('nomor telepon')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->required()
-                    ->email(),
-                Forms\Components\Select::make('transaksi_sewa_id')
-                    ->relationship('transaksiSewa', 'id')
-                    ->required(),
-            ]);
-    }
+        public static function form(Form $form): Form
+        {
+            return $form
+                ->schema([
+                    Forms\Components\TextInput::make('Nama')
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('Nomor_Telepon')
+                        ->required(),
+                    Forms\Components\TextInput::make('email')
+                        ->required()
+                        ->email(),
+                    Forms\Components\Select::make('transaksi_sewa_id')
+                        ->relationship('transaksiSewa', 'id')
+                        ->required(),
+                ]);
+        }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('name')
+                TextColumn::make('Nama')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('occupation'),
+                TextColumn::make('Nomor_Telepon'),
                 TextColumn::make('email'),
                 TextColumn::make('transaksiSewa.id')
                     ->label('Transaction ID'),
             ])
             ->actions([
                 EditAction::make(),
-            ])
-            ->bulkActions([
-                DeleteBulkAction::make(),
             ]);
     }
 

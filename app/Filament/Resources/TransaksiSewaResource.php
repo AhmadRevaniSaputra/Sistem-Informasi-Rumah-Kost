@@ -13,9 +13,13 @@ use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
+
 class TransaksiSewaResource extends Resource
 {
     protected static ?string $model = Transaksi_Sewa::class;
+    protected static ?string $navigationIcon = 'heroicon-o-credit-card';
+
+
     public static function form(Form $form): Form
     {
         return $form
@@ -27,8 +31,8 @@ class TransaksiSewaResource extends Resource
                     ->required(),
                 Forms\Components\DatePicker::make('tanggal_selesai')
                     ->required(),
-                    Forms\Components\Select::make('kamar__kost_id')
-                    ->relationship('kamar_Kost', 'name')
+                Forms\Components\Select::make('kamar_kost_id') // Pastikan nama field benar
+                    ->relationship('kamar_kost', 'gambar') // Sesuaikan dengan nama relasi dan kolom
                     ->required(),
             ]);
     }
@@ -37,21 +41,19 @@ class TransaksiSewaResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('kamar_Kost.name')
-                    ->label('Room')
-                    ->searchable(),
+                Tables\Columns\ImageColumn::make('Kamar_kost.gambar'),
                 TextColumn::make('total_harga')
-                    ->sortable(),
+                    ->sortable()
+                    ->label('Total Harga'),
                 TextColumn::make('tanggal_mulai')
-                    ->date(),
+                    ->date()
+                    ->label('Tanggal Mulai'),
                 TextColumn::make('tanggal_selesai')
-                    ->date(),
+                    ->date()
+                    ->label('Tanggal Selesai'),
             ])
             ->actions([
                 EditAction::make(),
-            ])
-            ->bulkActions([
-                DeleteBulkAction::make(),
             ]);
     }
 

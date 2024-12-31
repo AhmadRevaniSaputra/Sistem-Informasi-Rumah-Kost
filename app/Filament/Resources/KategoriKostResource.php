@@ -16,6 +16,7 @@ use Filament\Tables\Actions\DeleteBulkAction;
 class KategoriKostResource extends Resource
 {
     protected static ?string $model = KategoriKost::class;
+    protected static ?string $navigationIcon = 'heroicon-o-cube';
 
     public static function form(Form $form): Form
     {
@@ -24,8 +25,6 @@ class KategoriKostResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->disabled(),
                 Forms\Components\Textarea::make('description')
                     ->maxLength(500),
             ]);
@@ -37,18 +36,14 @@ class KategoriKostResource extends Resource
                 TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('slug')
-                    ->searchable(),
                 TextColumn::make('description')
                     ->limit(50),
             ])
             ->actions([
                EditAction::make(),
-            ])
-            ->bulkActions([
-                DeleteBulkAction::make(),
             ]);
-    }
+            
+            }
     public static function getRelations(): array
     {
         return [];

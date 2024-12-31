@@ -12,8 +12,8 @@ class penghuni_kost extends Model
     protected $table = 'penghuni_kost';
 
     protected $fillable = [
-        'nama',
-        'nomor telepon',
+        'Nama',
+        'Nomor_Telepon',
         'email',
         'transaksi_sewa_id'
     ];

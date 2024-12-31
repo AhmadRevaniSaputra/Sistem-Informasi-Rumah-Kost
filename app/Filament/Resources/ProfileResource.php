@@ -16,6 +16,7 @@ use Filament\Tables\Actions;
 class ProfileResource extends Resource
 {
     protected static ?string $model = Profile::class;
+    protected static ?string $navigationIcon = 'heroicon-o-user';
 
     public static function form(Form $form): Form
     {
@@ -58,9 +59,6 @@ class ProfileResource extends Resource
             ])
             ->actions([
                 Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Actions\DeleteBulkAction::make(),
             ]);
     }
 

@@ -19,7 +19,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class FasilitasKostResource extends Resource
 {
     protected static ?string $model = fasilitas_Kost::class;
-
+    protected static ?string $navigationIcon = '/icons/bed.png';
+  
     public static function form(Form $form): Form
     {
         return $form
@@ -45,14 +46,10 @@ class FasilitasKostResource extends Resource
                     ->sortable(),
                 TextColumn::make('description')
                     ->limit(50),
-                TextColumn::make('kamar_Kost.name')
-                    ->label('Room'),
+                Tables\Columns\ImageColumn::make('Kamar_kost.gambar'),
             ])
             ->actions([
                 EditAction::make(),
-            ])
-            ->bulkActions([
-                DeleteBulkAction::make(),
             ]);
     }
 

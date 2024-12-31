@@ -16,13 +16,14 @@ use Filament\Tables\Actions;
 class KamarKostResource extends Resource
 {
     protected static ?string $model = Kamar_Kost::class;
+    protected static ?string $navigationIcon = 'heroicon-o-key';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\FileUpload::make('gambar')
-                    ->label('Gambar')
+                    ->label('gambar')
                     ->image()
                     ->required(),
                 Forms\Components\Textarea::make('description')
@@ -42,9 +43,9 @@ class KamarKostResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
+            ->columns(components: [
                 ImageColumn::make('gambar')
-                    ->label('Gambar'),
+                    ->label('gambar'),
                 TextColumn::make('harga')
                     ->sortable(),
                 TextColumn::make('kategoriKost.name')
@@ -52,9 +53,6 @@ class KamarKostResource extends Resource
             ])
             ->actions([
                 Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Actions\DeleteBulkAction::make(),
             ]);
     }
 
